@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   selectedPillText: {
     fontSize: 18,
     color: "white",
+    fontWeight: "600",
   },
   row: {
     paddingLeft: 10,

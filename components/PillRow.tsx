@@ -1,0 +1,89 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native";
+
+const Pill = ({ pill, selected, setSelected }: any) => {
+  const handlePress = () => {
+    setSelected(pill?.idx);
+  };
+  return (
+    <TouchableOpacity
+      onPress={handlePress}
+      style={selected === pill?.idx ? styles.selectedPill : styles.pill}
+    >
+      <Text
+        style={
+          selected === pill?.idx ? styles.selectedPillText : styles.pillText
+        }
+      >
+        {pill?.title}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+interface PillRowProps {
+  pills: Array<any>;
+}
+
+const PillRow = ({ pills }: PillRowProps) => {
+  const [selected, setSelected] = React.useState(0);
+
+  return (
+    <View style={styles.row}>
+      {pills.map((pill, idx) => (
+        <Pill
+          pill={{ ...pill, idx: idx }}
+          selected={selected}
+          setSelected={setSelected}
+        />
+      ))}
+    </View>
+  );
+};
+
+export default PillRow;
+
+const styles = StyleSheet.create({
+  pill: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 40,
+    marginRight: 12,
+    color: "black",
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 20,
+  },
+  pillText: {
+    fontSize: 18,
+    color: "black",
+  },
+  selectedPill: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 40,
+    marginRight: 12,
+    color: "white",
+    padding: 10,
+    backgroundColor: "black",
+    borderRadius: 20,
+  },
+  selectedPillText: {
+    fontSize: 18,
+    color: "white",
+  },
+  row: {
+    paddingLeft: 10,
+    paddingRight: 10,
+    flexDirection: "row",
+    overflow: "scroll",
+  },
+  text: {
+    fontSize: 14,
+  },
+});

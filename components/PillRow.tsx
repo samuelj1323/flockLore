@@ -28,20 +28,24 @@ const Pill = ({ pill, selected, setSelected }: any) => {
 };
 interface PillRowProps {
   pills: Array<any>;
+  children: React.ReactNode;
 }
 
-const PillRow = ({ pills }: PillRowProps) => {
+const PillRow = ({ pills, children }: PillRowProps) => {
   const [selected, setSelected] = React.useState(0);
 
   return (
-    <View style={styles.row}>
-      {pills.map((pill, idx) => (
-        <Pill
-          pill={{ ...pill, idx: idx }}
-          selected={selected}
-          setSelected={setSelected}
-        />
-      ))}
+    <View>
+      <View style={styles.row}>
+        {pills.map((pill, idx) => (
+          <Pill
+            pill={{ ...pill, idx: idx }}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        ))}
+      </View>
+      {children}
     </View>
   );
 };
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: 12,
     color: "white",
-    padding: 10,
+    padding: 9,
     backgroundColor: "black",
     borderRadius: 20,
   },

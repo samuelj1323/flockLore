@@ -1,9 +1,11 @@
+<script src="http://localhost:8097"></script>;
 import { Image, StyleSheet, Platform, Text, View, Grid } from "react-native";
 import Header from "@/components/Header";
 import Icon from "@/assets/images/Sam_icon.png";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import PillRow from "@/components/PillRow";
+import InfiniteScroll from "@/components/InfiniteScroll";
 
 export default function HomeScreen() {
   const pillRow = [
@@ -14,7 +16,9 @@ export default function HomeScreen() {
   return (
     <ThemedView>
       <Header title="FlockLore" profileImage={Icon} />
-      <PillRow pills={pillRow} />
+      <PillRow pills={pillRow}>
+        <InfiniteScroll />
+      </PillRow>
     </ThemedView>
   );
 }
@@ -37,5 +41,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: "absolute",
+  },
+  pageView: {
+    display: "flex",
+    flex: 1,
   },
 });

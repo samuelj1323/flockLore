@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 50,
+    flex: 1,
+    marginTop: 40,
     justifyContent: "space-between",
     padding: 10,
   },
   title: {
-    flex: 1,
     textAlign: "center",
     fontSize: 24,
   },

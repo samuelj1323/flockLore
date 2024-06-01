@@ -13,15 +13,34 @@ const Card = ({ item }: any) => {
     const iconName = liked ? "heart" : "heart-outline"; // Choose icon based on liked state
 
     return (
-      <TouchableOpacity onPress={handleLikePress}>
-        <MaterialCommunityIcons name={iconName} size={24} color="yellow" />
+      <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          paddingLeft: 3,
+          paddingRight: 3,
+          paddingTop: 4,
+        }}
+        onPress={handleLikePress}
+      >
+        <MaterialCommunityIcons
+          style={{ bottom: 4 }}
+          name={iconName}
+          size={24}
+          color="black"
+        />
+        <Text style={{ marginLeft: 5 }}>Like</Text>
       </TouchableOpacity>
     );
   };
   const CommentsButton = () => {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity style={{ marginLeft: 10 }}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <MaterialCommunityIcons
+            name="comment-outline"
+            size={24}
+            color="black"
+          />
           <Text style={{ marginLeft: 5 }}> {"Comment"}</Text>
         </View>
       </TouchableOpacity>
@@ -56,13 +75,50 @@ const Card = ({ item }: any) => {
     );
   };
 
+  const InteractiveContent = () => {
+    return (
+      <View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            display: "flex",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            paddingLeft: 20,
+            paddingBottom: 10,
+          }}
+        >
+          <LikeButton isLiked={true} />
+          <CommentsButton />
+        </View>
+      </View>
+    );
+  };
+
   return (
     <View key={item.key} style={styles.cardContainer}>
       <IdentityRow />
       <Image style={styles.imageSizing} source={item.contentImage} />
-      <Text>Main content</Text>
-      <LikeButton isLiked={true} />
-      <CommentsButton />
+      <View
+        style={{
+          flexDirection: "column",
+          width: "100%",
+          display: "flex",
+          flex: 1,
+          alignItems: "center",
+        }}
+      >
+        <View>
+          <Text>This is a really cool bird</Text>
+        </View>
+        <InteractiveContent />
+      </View>
     </View>
   );
 };

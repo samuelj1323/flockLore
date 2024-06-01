@@ -1,34 +1,60 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { TabBarIcon } from "@/components/navigation/TabBarIcon";
+import { Colors } from "@/constants/Colors";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const BinocularsIcon = ({ color, focused }) => {
+    return <FontAwesome name="binoculars" size={24} color={color} />;
+  };
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: "Nest",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <TabBarIcon
+              name={focused ? "home" : "home-outline"}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="Identify"
         options={{
-          title: 'Explore',
+          title: "Identify",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={"search"} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Map"
+        options={{
+          title: "Map",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={"map"} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Sightings"
+        options={{
+          title: "Sightings",
+          tabBarIcon: ({ color, focused }) => (
+            <BinocularsIcon color={color} focused={focused} />
           ),
         }}
       />

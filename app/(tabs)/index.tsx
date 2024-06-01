@@ -1,12 +1,12 @@
-<script src="http://localhost:8097"></script>;
 import { Image, StyleSheet, Platform, Text, View } from "react-native";
 import Header from "@/components/Header";
+
 import Icon from "@/assets/images/Sam_icon.png";
 import { ThemedView } from "@/components/ThemedView";
 import PillRow from "@/components/PillRow";
 import InfiniteScroll from "@/components/InfiniteScroll";
 
-export default function HomeScreen() {
+export default function Nest() {
   const pillRow = [
     { title: "My Flock" },
     { title: "In Your Area" },
@@ -21,7 +21,6 @@ export default function HomeScreen() {
     </ThemedView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

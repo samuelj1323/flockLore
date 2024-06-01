@@ -18,6 +18,7 @@ const InfiniteScroll = () => {
       profileSrc: Icon,
       profileName: "Sam",
       group: "Your Flock",
+      timestamp: "3 min ago",
     }));
     setData([...data, ...newData]); // Append new data to existing data
   };

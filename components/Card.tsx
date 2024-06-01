@@ -33,18 +33,29 @@ const Card = ({ item }: any) => {
       <View
         style={{
           justifyContent: "flex-start",
+          width: "100%", // Maintains left alignment
           flexDirection: "row",
+          alignItems: "flex-end", // Vertically aligns content at the bottom
+          paddingLeft: 20,
+          paddingTop: 10,
+          paddingBottom: 5,
         }}
       >
         <Image source={item?.profileSrc} style={{ width: 32, height: 32 }} />
-        <Text style={{ fontWeight: "700", fontSize: 18 }}>
-          {item?.profileName}
-        </Text>
-        <Text style={{ fontSize: 14 }}> from {item?.group}</Text>
-        <Text>3 min ago</Text>
+        <View style={{ flexDirection: "column", marginLeft: 5 }}>
+          <Text style={{ fontWeight: "700", fontSize: 14 }}>
+            {item?.profileName}{" "}
+            <Text style={{ fontWeight: 400, fontSize: 14 }}>
+              {" "}
+              from {item?.group}
+            </Text>
+          </Text>
+          <Text style={{ fontSize: 12 }}>{item?.timestamp}</Text>
+        </View>
       </View>
     );
   };
+
   return (
     <View key={item.key} style={styles.cardContainer}>
       <IdentityRow />
@@ -65,6 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: 350,
     flex: 1,
+    padding: 0, // Remove default padding
   },
   imageSizing: {
     borderRadius: 8,

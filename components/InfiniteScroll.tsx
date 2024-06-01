@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FlatList, View, Text, StyleSheet } from "react-native";
 import Card from "./Card";
 import { ThemedView } from "./ThemedView";
+import contentImage from "../assets/images/bird_1.png";
+import Icon from "@/assets/images/Sam_icon.png";
 
 const InfiniteScroll = () => {
   const [data, setData] = useState([]);
@@ -12,6 +14,10 @@ const InfiniteScroll = () => {
     const newData = Array.from({ length: pageSize }).map((_, i) => ({
       id: i, // Generate unique IDs
       content: `Item ${i + (page - 1) * pageSize + 1}`,
+      contentImage: contentImage,
+      profileSrc: Icon,
+      profileName: "Sam",
+      group: "Your Flock",
     }));
     setData([...data, ...newData]); // Append new data to existing data
   };

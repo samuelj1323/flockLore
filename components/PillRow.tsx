@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     flexDirection: "row",
     overflow: "scroll",
+    marginTop: 20,
+    paddingBottom: 10,
   },
   text: {
     fontSize: 14,

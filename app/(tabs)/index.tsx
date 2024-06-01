@@ -1,8 +1,7 @@
 <script src="http://localhost:8097"></script>;
-import { Image, StyleSheet, Platform, Text, View, Grid } from "react-native";
+import { Image, StyleSheet, Platform, Text, View } from "react-native";
 import Header from "@/components/Header";
 import Icon from "@/assets/images/Sam_icon.png";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import PillRow from "@/components/PillRow";
 import InfiniteScroll from "@/components/InfiniteScroll";

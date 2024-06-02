@@ -39,6 +39,7 @@ const PillRow = ({ pills, children }: PillRowProps) => {
       <View style={styles.row}>
         {pills.map((pill, idx) => (
           <Pill
+            key={`pill-key-idx-${idx}`}
             pill={{ ...pill, idx: idx }}
             selected={selected}
             setSelected={setSelected}
